@@ -1,13 +1,15 @@
 var typed = new Typed(".text", {
 
-    strings: ["Frontend Developer", "YouTuber", "Web Developer"],
+    strings: [
+        "Preparing for Competitive Exams",
+        "Dedicated B.Sc CS Student",
+        "Aiming for Government Services",
+        "Consistency & Hard Work"
+    ],
 
-    typeSpeed: 100,
-
-    backSpeed: 100,
-
-    backDelay: 1000,
-
+    typeSpeed: 80,
+    backSpeed: 80,
+    backDelay: 1200,
     loop: true
 
 });
