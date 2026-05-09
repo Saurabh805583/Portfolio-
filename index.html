@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Saurabh Ingle | Professional Portfolio</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
 </head>
 <body>
+
     <header class="header">
-        <a href="#" class="logo">Portfolio</a>
+        <a href="#home" class="logo">Portfolio</a>
 
         <nav class="navbar">
-            <a href="#" style="--i:1" class="active">Home</a>
-            <a href="#" style="--i:2">About</a>
-            <a href="#" style="--i:3">Skill</a>
-            <a href="#" style="--i:4">Portfolio</a>
-            <a href="#" style="--i:5">Contact</a>
+            <a href="#home" style="--i:1" class="active">Home</a>
+            <a href="#about" style="--i:2">About</a>
+            <a href="#education" style="--i:3">Education</a>
+            <a href="#skill" style="--i:4">Skills</a>
+            <a href="#portfolio" style="--i:5">Portfolio</a>
+            <a href="#contact" style="--i:6">Contact</a>
         </nav>
     </header>
 
-    <section class="home">
+    <section class="home" id="home">
         <div class="home-content">
             <h3>Hello, It's Me</h3>
             <h1>Saurabh Vijay Ingle</h1>
             <h3>And I'm a <span class="text"></span></h3>
-            <p>I'm a web Designer with extensive experience for over 3 years.
-                <br>expertise is to create and website design, Frontend design, and many more....</p>
+            <p>I am a B.Sc. Computer Science student at Vidnyan Mahavidyalaya, Malkapur. 
+               My expertise lies in modern Web Design, while I am also deeply focused on 
+               preparing for Competitive Examinations to serve the nation.</p>
             
             <div class="home-sci">
                 <a href="#" style="--i:7"><i class='bx bxl-facebook'></i></a>
                 <a href="#" style="--i:8"><i class='bx bxl-instagram' ></i></a>
                 <a href="#" style="--i:9"><i class='bx bxl-whatsapp' ></i></a>
-                <a href="#" style="--i:10"><i class='bx bxl-tiktok' ></i></a>
+                <a href="#" style="--i:10"><i class='bx bxl-linkedin' ></i></a>
             </div>
-            <a href="#" class="btn-box">More About Me</a>
+            
+            <div class="btn-group">
+                <a href="#about" class="btn-box">More About Me</a>
+                <a href="#" class="btn-box" download>Download CV</a>
+            </div>
         </div>
 
         <div class="home-img">
@@ -48,6 +55,133 @@
         </div>
     </section>
 
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Student & Competitive Exam Aspirant</h3>
+            <p>I am currently in my 2nd year of B.Sc. (Computer Science). I enjoy solving complex logical problems, which helps me in both coding and competitive exam preparation. My goal is to combine my technical knowledge with administrative skills to make a meaningful impact.</p>
+            <p><b>Hobbies:</b> Strategic Gaming, Content Humanizing, and analyzing Modern Agriculture Trends.</p>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="heading">My <span>Journey</span></h2>
+        <div class="education-row">
+            <div class="education-column">
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2024 - Present</div>
+                            <h3>B.Sc. Computer Science - Vidnyan Mahavidyalaya</h3>
+                            <p>Learning Programming, Databases, and System Analysis.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2022 - 2023</div>
+                            <h3>Higher Secondary (12th) - Science</h3>
+                            <p>Completed with a strong focus on Physics and Mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skill">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title">Technical Skills</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress"><h3>HTML/CSS <span>90%</span></h3><div class="bar"><span></span></div></div>
+                        <div class="progress"><h3>Python/C++ <span>75%</span></h3><div class="bar"><span></span></div></div>
+                        <div class="progress"><h3>SQL Database <span>80%</span></h3><div class="bar"><span></span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h3 class="title">Competitive Prep</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress"><h3>General Studies <span>70%</span></h3><div class="bar"><span></span></div></div>
+                        <div class="progress"><h3>Aptitude <span>85%</span></h3><div class="bar"><span></span></div></div>
+                        <div class="progress"><h3>Reasoning <span>80%</span></h3><div class="bar"><span></span></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="heading">My <span>Expertise</span></h2>
+        <div class="services-container">
+            <div class="services-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>Web Design</h3>
+                <p>Creating professional and responsive frontend designs for portfolios and businesses.</p>
+            </div>
+            <div class="services-box">
+                <i class='bx bx-edit-alt'></i>
+                <h3>Content Writing</h3>
+                <p>Optimizing and humanizing AI content for better engagement and authenticity.</p>
+            </div>
+            <div class="services-box">
+                <i class='bx bx-brain'></i>
+                <h3>Logical Analysis</h3>
+                <p>Applying computational logic to solve complex problems in real-world scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Projects</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="project1.jpg" alt=""> <div class="portfolio-layer">
+                    <h4>Professional Portfolio</h4>
+                    <p>A modern web-based portfolio built with HTML, CSS, and JS.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number">
+                <input type="text" placeholder="Subject">
+            </div>
+            <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-box">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by Saurabh Ingle | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <script>
+        var typed = new Typed(".text", {
+            strings: ["BSc CS Student", "Web Designer", "Competitive Exam Aspirant"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
     <script src="main.js"></script>
 </body>
 </html>
