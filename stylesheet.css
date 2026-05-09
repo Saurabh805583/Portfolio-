@@ -588,7 +588,11 @@ span {
         width: 220px;
         height: 220px;
     }
-
+.navbar a.active {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+                      }
+       
     .btn-box {
         padding: 10px 20px;
         font-size: 14px;
