@@ -523,20 +523,21 @@ span {
         flex-direction: column-reverse; /* Image var ani text khali sathi */
         text-align: center;
         height: auto;
-        padding-top: 150px;
-        gap: 2rem;
+        padding-top: 130px; /* Thoda kami kela space sathi */
+        gap: 1rem; /* Photo ani content madhli space kami karnyasathi */
     }
 
     .home-content {
         max-width: 100%;
+        margin-top: -10px; /* Photo chya javal nenyasathi */
     }
 
-    .home-content h1 { font-size: 45px; }
+    .home-content h1 { font-size: 40px; } /* Mobile var h1 motha disto mhanun thoda lahan kela */
 
     .profile-glow {
-        width: 300px;
-        height: 300px;
-        margin-bottom: 20px;
+        width: 280px;
+        height: 280px;
+        margin-bottom: 0px; /* Space kami karnyasathi */
     }
 
     .btn-group {
@@ -545,25 +546,26 @@ span {
 
     .home-sci {
         justify-content: center;
+        margin-top: 10px;
     }
 }
 
 /* Mobile Devices (Max 768px) */
 @media (max-width: 768px) {
     .navbar {
-        display: none; /* Mobile sathi burger menu naseel tar hide kela aahe */
+        display: none; 
     }
 
     .heading { font-size: 40px; }
 
-    .home-content h1 { font-size: 35px; }
+    .home-content h1 { font-size: 32px; }
     
-    .home-content h3 { font-size: 24px; }
+    .home-content h3 { font-size: 22px; }
 
     .about-content p { font-size: 16px; }
 
     .contact form .input-box input {
-        width: 100%; /* Input mobile var full width */
+        width: 100%; 
     }
 
     .footer {
@@ -575,15 +577,20 @@ span {
 
 /* Small Mobile (Max 480px) */
 @media (max-width: 480px) {
-    .home-content h1 { font-size: 28px; }
+    .home {
+        padding-top: 100px;
+        gap: 0.5rem;
+    }
+
+    .home-content h1 { font-size: 26px; }
     
     .profile-glow {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
 
     .btn-box {
         padding: 10px 20px;
         font-size: 14px;
     }
-   }
+}
