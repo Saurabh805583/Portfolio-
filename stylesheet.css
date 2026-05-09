@@ -1,43 +1,63 @@
-
+/* ======================================================
+   1. BASIC SETUP & UNIVERSAL STYLING
+   ====================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     color: #ededed;
-    background: #081b29; /* Background color fix */
+    background: #081b29;
+    overflow-x: hidden;
 }
 
+/* Custom Scrollbar - Trending Look */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #081b29;
+}
+::-webkit-scrollbar-thumb {
+    background: #0ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ef;
+}
+
+/* ======================================================
+   2. HEADER & NAVIGATION
+   ====================================================== */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: transparent;
+    background: rgba(8, 27, 41, 0.85);
+    backdrop-filter: blur(15px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-    position: relative;
-    font-size: 25px;
+    font-size: 28px;
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    cursor: default;
+    font-weight: 700;
     opacity: 0;
     animation: slideRight 1s ease forwards;
 }
 
 .navbar a {
     display: inline-block;
-    font-size: 25px;
+    font-size: 18px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -48,18 +68,19 @@ body {
     animation-delay: calc(.2s * var(--i));
 }
 
-.navbar a:hover {
+.navbar a:hover, .navbar a.active {
     color: #0ef;
+    text-shadow: 0 0 10px #0ef;
 }
 
+/* ======================================================
+   3. HOME SECTION
+   ====================================================== */
 .home {
     position: relative;
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    /* Background path check kara, garaj naslyas remove kara */
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     padding: 70px 10% 0;
@@ -77,16 +98,6 @@ body {
     animation-delay: .7s;
 }
 
-.home-content h3:nth-of-type(2) {
-    margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: .7s;
-}
-
-.home-content h3 span {
-    color: #0ef;
-}
-
 .home-content h1 {
     font-size: 56px;
     font-weight: 700;
@@ -97,7 +108,9 @@ body {
 }
 
 .home-content p {
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    line-height: 1.6;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: 1s;
@@ -107,12 +120,12 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: transparent;
     border: 2px solid #0ef;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 22px;
     color: #0ef;
     text-decoration: none;
     transition: .5s ease;
@@ -128,6 +141,11 @@ body {
     box-shadow: 0 0 20px #0ef;
 }
 
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
 .btn-box {
     display: inline-block;
     padding: 12px 28px;
@@ -141,33 +159,31 @@ body {
     opacity: 0;
     animation: slideTop 1s ease forwards;
     animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+    box-shadow: 0 0 15px #0ef;
+    transition: .5s ease;
 }
 
 .btn-box:hover {
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
 }
 
-/* --- NAVIN ADD KELELA GLOW IMAGE CODE --- */
-
+/* --- Profile Image Glow --- */
 .home-img {
     opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: 1s;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 1.5s;
 }
 
 .profile-glow {
-    width: 350px; /* Size adjust kara */
-    height: 350px;
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-    padding: 6px;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* Neon Glow effect (Blue & Pink) */
     background: linear-gradient(45deg, #00f2ff, #ff00ff);
-    box-shadow: 0 0 15px #00f2ff, 0 0 30px #ff00ff, 0 0 60px rgba(0, 242, 255, 0.4);
+    box-shadow: 0 0 20px #00f2ff, 0 0 40px #ff00ff;
 }
 
 .image-wrapper {
@@ -176,9 +192,6 @@ body {
     border-radius: 50%;
     overflow: hidden;
     background: #081b29;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .image-wrapper img {
@@ -192,212 +205,322 @@ body {
     transform: scale(1.1);
 }
 
-/* --- ANIMATIONS & MEDIA QUERIES (TASHECH THEVLE AAHE) --- */
-
-@keyframes slideRight {
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0px); opacity: 1; }
+/* ======================================================
+   4. GENERAL SECTION STYLING (About, Education, Skills)
+   ====================================================== */
+section {
+    min-height: 100vh;
+    padding: 100px 10% 80px;
 }
 
-@keyframes slideLeft {
-    0% { transform: translateX(100px); opacity: 0; }
-    100% { transform: translateX(0px); opacity: 1; }
+.heading {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-@keyframes slideTop {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0px); opacity: 1; }
+span {
+    color: #0ef;
 }
 
-@keyframes slideBottom {
-    0% { transform: translateY(-100px); opacity: 0; }
-    100% { transform: translateY(0px); opacity: 1; }
+/* About Section */
+.about {
+    background: #112e42;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Mobile & Tablet responsiveness sathi image hide/resize */
-@media (max-width: 900px) {
-    .home {
-        flex-direction: column;
-        height: auto;
-        padding: 120px 5% 50px;
-    }
-    .profile-glow {
-        width: 280px;
-        height: 280px;
-        margin-top: 50px;
-    }
-}
-    animation: slideRight 1s ease forwards;
-    animation-delay: 1s;
-
-
+.about-content h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-.home-content p {
-    font-size: 20px;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: 1s;
-
+.about-content p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
 }
 
-.home-sci a {
+/* Education Timeline */
+.education {
+    background: #081b29;
+}
+
+.education-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.education-column {
+    flex: 1 1 100%;
+    max-width: 800px;
+}
+
+.education-box {
+    border-left: 3px solid #0ef;
+    padding-left: 25px;
+}
+
+.education-content {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.education-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -34px;
+    width: 15px;
+    height: 15px;
+    background: #0ef;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ef;
+}
+
+.content {
+    background: #112e42;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+.content .year {
+    color: #0ef;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.skills-column {
+    flex: 1 1 400px;
+}
+
+.skills-column .title {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.skills-box {
+    background: #112e42;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.progress {
+    padding: 10px 0;
+}
+
+.progress h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bar {
+    height: 12px;
+    width: 100%;
+    background: #081b29;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: #0ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ef;
+}
+
+/* Add width for each skill */
+.skills-column:nth-child(1) .progress:nth-child(1) .bar span { width: 90%; }
+.skills-column:nth-child(1) .progress:nth-child(2) .bar span { width: 75%; }
+.skills-column:nth-child(1) .progress:nth-child(3) .bar span { width: 80%; }
+.skills-column:nth-child(2) .progress:nth-child(1) .bar span { width: 70%; }
+.skills-column:nth-child(2) .progress:nth-child(2) .bar span { width: 85%; }
+.skills-column:nth-child(2) .progress:nth-child(3) .bar span { width: 80%; }
+
+/* ======================================================
+   5. SERVICES & PROJECTS
+   ====================================================== */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.services-box {
+    background: #112e42;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: .5s ease;
+}
+
+.services-box:hover {
+    border-color: #0ef;
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.2);
+}
+
+.services-box i {
+    font-size: 55px;
+    color: #0ef;
+    margin-bottom: 20px;
+}
+
+/* Portfolio Projects */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.portfolio-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, #0ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+/* ======================================================
+   6. CONTACT & FOOTER
+   ====================================================== */
+.contact form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input, 
+.contact form textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background: #112e42;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+}
+
+.contact form .input-box input:focus, 
+.contact form textarea:focus {
+    border-color: #0ef;
+    outline: none;
+}
+
+.contact form .input-box input { width: 49%; }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    background: #112e42;
+}
+
+.footer-iconTop a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    font-size: 20px;
-    color: #0ef;
-    text-decoration: none;
+    padding: 10px;
+    background: #0ef;
+    border-radius: 10px;
     transition: .5s ease;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: calc(.2s * var(--i));
-
-    margin: 30px 15px 30px 0;
 }
 
-.home-sci a:hover {
-    background: #0ef;
+.footer-iconTop a:hover {
+    box-shadow: 0 0 15px #0ef;
+}
+
+.footer-iconTop a i {
+    font-size: 24px;
     color: #081b29;
-    box-shadow: 0 0 20px #0ef;
 }
 
-.btn-box {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #0ef;
-    border-radius: 40px;
-    font-size: 16px;
-    color: #081b29;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef,
-        0 0 25px #0ef
-}
-
-.btn-box:hover {
-    box-shadow: 0 0 5px cyan,
-        0 0 25px cyan, 0 0 50px cyan,
-        0 0 100px cyan, 0 0 200px cyan
-}
-
-
+/* ======================================================
+   7. ANIMATIONS & RESPONSIVENESS
+   ====================================================== */
 @keyframes slideRight {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
-
 @keyframes slideLeft {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
-
-
 @keyframes slideTop {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
-
 @keyframes slideBottom {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes zoomIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-/* 📱 Mobile (max 600px) */
-@media (max-width: 600px) {
-
-    .header {
-        padding: 15px 5%;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .navbar a {
-        font-size: 16px;
-        margin-left: 15px;
-    }
-
-    .home {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 100px 5% 50px;
-    }
-
-    .home-content h1 {
-        font-size: 32px;
-    }
-
-    .home-content h3 {
-        font-size: 20px;
-    }
-
-    .home-content p {
-        font-size: 16px;
-    }
+/* Media Queries */
+@media (max-width: 991px) {
+    .header { padding: 20px 5%; }
+    section { padding: 100px 5% 60px; }
+    .home { flex-direction: column-reverse; text-align: center; padding-top: 150px; }
+    .home-content h1 { font-size: 45px; }
+    .profile-glow { width: 300px; height: 300px; margin-bottom: 30px; }
+    .contact form .input-box input { width: 100%; }
 }
 
-
-/* 📱 Tablet (600px - 900px) */
-@media (max-width: 900px) {
-
-    .home-content h1 {
-        font-size: 40px;
+@media (max-width: 768px) {
+    .navbar { display: none; } /* Add burger menu if needed */
+    .heading { font-size: 40px; }
     }
-
-    .home-content h3 {
-        font-size: 24px;
-    }
-
-    .home {
-        padding: 100px 8%;
-    }
-}
-
-
-/* 💻 Laptop/Desktop */
-@media (min-width: 901px) {
-
-    .home-content h1 {
-        font-size: 56px;
-    }
-}
+    
