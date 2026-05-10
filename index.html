@@ -2,216 +2,215 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
-    <meta name="description" content="Saurabh Ingle - Portfolio | Web Designer | Government Exam Aspirant">
-
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Saurabh Vijay Ingle - Portfolio | B.Sc Computer Science Student & Govt Exam Aspirant">
+    <meta name="keywords" content="Saurabh Ingle, Portfolio, Web Developer, Data Analyst, MPSC, UPSC">
     <title>Saurabh Ingle | Portfolio</title>
 
+    <!-- External CSS & Icons -->
     <link rel="stylesheet" href="stylesheet.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    
+    <!-- Libraries (Defer for Performance) -->
     <script defer src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
     <script defer src="main.js"></script>
 </head>
 
 <body>
-
-<header class="header">
-    <a href="#" class="logo">Portfolio</a>
-    <i class='bx bx-menu' id="menu-icon"></i>
-
-    <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#gov-prep">Preparation</a>
-        <a href="#skills">Skills</a>
-        <a href="#portfolio">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<!-- ================= HOME ================= -->
-<section class="home" id="home">
-
-    <div class="home-content">
-        <h3>Hello, It's Me</h3>
-        <h1>Saurabh Vijay Ingle</h1>
-
-        <h3>
-            B.Sc CS Student | Govt Exam Aspirant | 
-            <span class="text"></span>
-        </h3>
-
-        <p>
-            Focused on government career with strong technical skills in web development.
-        </p>
-
-        <div class="home-sci">
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
-            <a href="#"><i class='bx bxl-whatsapp'></i></a>
-            <a href="#"><i class='bx bxl-linkedin'></i></a>
-        </div>
-
-        <div class="btn-group">
-            <a href="cv.pdf" class="btn-box" download>Download CV</a>
-            <a href="#contact" class="btn-box">Hire Me</a>
-        </div>
+    <!-- 1. Page Loader -->
+    <div id="loader">
+        <div class="loader-circle"></div>
     </div>
 
-    <div class="home-img">
-        <div class="profile-glow">
-            <div class="image-wrapper">
-                <img src="Saurabh.jpg" alt="">
+    <!-- 2. Custom Cursor Glow -->
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- 3. Header Section -->
+    <header class="header">
+        <a href="#home" class="logo">Saurabh<span>.</span></a>
+        
+        <div class='bx bx-menu' id="menu-icon"></div>
+
+        <nav class="navbar">
+            <a href="#home" class="active" style="--i:1;">Home</a>
+            <a href="#about" style="--i:2;">About</a>
+            <a href="#education" style="--i:3;">Journey</a>
+            <a href="#gov-prep" style="--i:4;">Preparation</a>
+            <a href="#skills" style="--i:5;">Skills</a>
+            <a href="#portfolio" style="--i:6;">Projects</a>
+            <a href="#contact" style="--i:7;">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 4. Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Saurabh Vijay Ingle</h1>
+            <h3>I'm a <span class="text"></span></h3>
+            <p>Focused on a government career with strong technical foundations in Web Development and Data Analysis. Currently pursuing B.Sc CS while mastering competitive exam strategies.</p>
+            
+            <div class="home-sci">
+                <a href="#" style="--i:8;"><i class='bx bxl-facebook'></i></a>
+                <a href="#" style="--i:9;"><i class='bx bxl-instagram'></i></a>
+                <a href="#" style="--i:10;"><i class='bx bxl-linkedin'></i></a>
+                <a href="#" style="--i:11;"><i class='bx bxl-github'></i></a>
+            </div>
+
+            <div class="btn-group">
+                <a href="cv.pdf" class="btn-box" download>Download CV</a>
+                <a href="#contact" class="btn-box">Contact Me</a>
             </div>
         </div>
-    </div>
 
-</section>
+        <div class="home-img">
+            <div class="profile-glow">
+                <div class="image-wrapper">
+                    <img src="Saurabh.jpg" alt="Saurabh Ingle">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
-
-    <div class="about-content">
+    <!-- 5. About Section -->
+    <section class="about" id="about">
         <h2 class="heading">About <span>Me</span></h2>
+        <div class="about-content">
+            <h3>Student & Government Exam Aspirant</h3>
+            <p>I am a second-year B.Sc Computer Science student from Buldhana, Maharashtra. My journey involves balancing the logical world of programming with the rigorous preparation for administrative services like MPSC and UPSC.</p>
+            <div class="about-info">
+                <p><strong>Education:</strong> B.Sc (Computer Science & Physics)</p>
+                <p><strong>Focus:</strong> Cybersecurity, Data Analytics, Public Administration</p>
+            </div>
+            <a href="#" class="btn-box">Read More</a>
+        </div>
+    </section>
 
-        <h3>Student & Government Exam Aspirant</h3>
-
-        <p>
-            I am a BSc Computer Science student passionate about web development and logical thinking.
-            I am preparing for government exams like MPSC, UPSC, and SSC.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ================= EDUCATION ================= -->
-<section class="education" id="education">
-
-    <h2 class="heading">My <span>Journey</span></h2>
-
-    <div class="education-row">
-
-        <div class="education-column">
-
-            <div class="education-box">
-
-                <div class="education-content">
-                    <div class="content">
-                        <h3>2024 - Present</h3>
-                        <p>B.Sc Computer Science</p>
+    <!-- 6. Education Section -->
+    <section class="education" id="education">
+        <h2 class="heading">My <span>Journey</span></h2>
+        <div class="education-row">
+            <div class="education-column">
+                <h3 class="title">Academic History</h3>
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2024 - Present</div>
+                            <h3>B.Sc (Computer Science)</h3>
+                            <p>Currently studying in 2nd year. Gaining deep insights into Computer Science and Physics.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2022 - 2024</div>
+                            <h3>Higher Secondary (12th)</h3>
+                            <p>Completed 12th in Science stream with a focus on analytical subjects.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="education-content">
-                    <div class="content">
-                        <h3>2022 - 2023</h3>
-                        <p>12th Science</p>
+    <!-- 7. Gov Prep Section -->
+    <section class="gov-prep" id="gov-prep">
+        <h2 class="heading">Government Exam <span>Prep</span></h2>
+        <div class="prep-container">
+            <div class="prep-box">
+                <i class='bx bxs-book-bookmark'></i>
+                <h3>Target Exams</h3>
+                <p>MPSC (State Service), UPSC, and Banking exams.</p>
+            </div>
+            <div class="prep-box">
+                <i class='bx bxs-brain'></i>
+                <h3>Core Subjects</h3>
+                <p>General Studies, CSAT, Current Affairs, and Reasoning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title">Technical Skills</h3>
+                <div class="skills-box">
+                    <div class="progress">
+                        <h3>HTML/CSS <span>90%</span></h3>
+                        <div class="bar"><span></span></div>
+                    </div>
+                    <div class="progress">
+                        <h3>Python/JS <span>75%</span></h3>
+                        <div class="bar"><span></span></div>
+                    </div>
+                    <div class="progress">
+                        <h3>SQL <span>80%</span></h3>
+                        <div class="bar"><span></span></div>
                     </div>
                 </div>
-
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= GOV PREP ================= -->
-<section class="gov-prep" id="gov-prep">
-
-    <h2 class="heading">Government Exam <span>Preparation</span></h2>
-
-    <div class="prep-container">
-
-        <div class="prep-box">
-            <h3>Target Exams</h3>
-            <p>MPSC, UPSC, SSC, Banking</p>
-        </div>
-
-        <div class="prep-box">
-            <h3>Subjects</h3>
-            <p>GS, Aptitude, Reasoning, Current Affairs</p>
-        </div>
-
-        <div class="prep-box">
-            <h3>Strength</h3>
-            <p>Consistency, Logical Thinking</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= SKILLS ================= -->
-<section class="skills" id="skills">
-
-    <h2 class="heading">My <span>Skills</span></h2>
-
-    <div class="skills-row">
-
-        <div class="skills-column">
-            <h3 class="title">Technical</h3>
-
-            <div class="progress">
-                <h3>HTML/CSS <span>90%</span></h3>
-            </div>
-
-            <div class="progress">
-                <h3>Python <span>75%</span></h3>
+            <div class="skills-column">
+                <h3 class="title">Aptitude & Logical</h3>
+                <div class="skills-box">
+                    <div class="progress">
+                        <h3>Quantitative Aptitude <span>85%</span></h3>
+                        <div class="bar"><span></span></div>
+                    </div>
+                    <div class="progress">
+                        <h3>Reasoning <span>80%</span></h3>
+                        <div class="bar"><span></span></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="skills-column">
-            <h3 class="title">Exam Prep</h3>
-
-            <div class="progress">
-                <h3>Aptitude <span>85%</span></h3>
-            </div>
-
-            <div class="progress">
-                <h3>Reasoning <span>80%</span></h3>
+    <!-- 9. Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Projects</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="project1.jpg" alt="Portfolio Image">
+                <div class="portfolio-layer">
+                    <h4>Professional Portfolio</h4>
+                    <p>Modern personal website with glassmorphism and advanced JS animations.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- 10. Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn-box">
+        </form>
+    </section>
 
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section class="portfolio" id="portfolio">
-
-    <h2 class="heading">Projects</h2>
-
-    <div class="portfolio-box">
-        <h3>Portfolio Website</h3>
-        <p>Built using HTML, CSS, JavaScript</p>
-    </div>
-
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="contact" id="contact">
-
-    <h2 class="heading">Contact Me</h2>
-
-    <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message"></textarea>
-        <button class="btn-box">Send</button>
-    </form>
-
-</section>
-
-<footer class="footer">
-    <p>© 2026 Saurabh Ingle</p>
-</footer>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by Saurabh Ingle | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
 </body>
-                                  </html>
+                                </html>
+                                             
