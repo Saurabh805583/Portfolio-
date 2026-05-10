@@ -189,10 +189,11 @@ body {
 ====================================================== */
 section {
     padding: 100px 10% 80px;
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 1;           /* <--- He 1 kelyavar website lagech disel */
+    transform: translateY(0); /* <--- He pan 0 kar */
     transition: .8s ease;
 }
+
 
 section.active {
     opacity: 1;
