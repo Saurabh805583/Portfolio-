@@ -1,13 +1,6 @@
 /* ======================================================
-   1. GLOBAL STYLING
+   1. BASIC SETUP & UNIVERSAL STYLING
    ====================================================== */
-:root {
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
-    --main-color: #0ef;
-    --text-color: #ededed;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +10,22 @@
 }
 
 body {
-    color: var(--text-color);
-    background: var(--bg-color);
+    color: #ededed;
+    background: #081b29;
     overflow-x: hidden;
+}
+
+/* Custom Scrollbar - Trending Look */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #081b29;
+}
+::-webkit-scrollbar-thumb {
+    background: #0ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ef;
 }
 
 /* ======================================================
@@ -31,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: rgba(8, 27, 41, 0.9);
+    background: rgba(8, 27, 41, 0.85);
     backdrop-filter: blur(15px);
     display: flex;
     justify-content: space-between;
@@ -45,65 +51,139 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: 700;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
 }
 
 .navbar a {
+    display: inline-block;
     font-size: 18px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
     transition: .3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
 }
 
 .navbar a:hover, .navbar a.active {
-    color: var(--main-color);
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
 }
 
 /* ======================================================
-   3. HOME SECTION (CENTERED & STABLE PHOTO COLOR)
+   3. HOME SECTION
    ====================================================== */
-section {
-    min-height: 100vh;
-    padding: 100px 10% 80px;
-}
-
 .home {
-    display: flex;
+    position: relative;
+    width: 100%;
     justify-content: space-between;
+    height: 100vh;
+    display: flex;
     align-items: center;
-    gap: 2rem;
+    padding: 70px 10% 0;
 }
 
 .home-content {
-    flex: 1;
+    max-width: 600px;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
 }
 
 .home-content h1 {
     font-size: 56px;
     font-weight: 700;
-    margin: 8px 0;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
 }
 
-.home-img {
-    flex: 1;
-    display: flex;
+.home-content p {
+    font-size: 18px;
+    margin-top: 20px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-sci a {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 22px;
+    color: #0ef;
+    text-decoration: none;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    margin: 30px 15px 30px 0;
 }
 
-/* NEON RING - Only Rotate, No Hue Shift on Photo */
+.home-sci a:hover {
+    background: #0ef;
+    color: #081b29;
+    box-shadow: 0 0 20px #0ef;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-box {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0ef;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #081b29;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 15px #0ef;
+    transition: .5s ease;
+}
+
+.btn-box:hover {
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
+}
+
+/* --- Profile Image Glow --- */
+.home-img {
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
 .profile-glow {
-    position: relative;
     width: 380px;
     height: 380px;
     border-radius: 50%;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, var(--main-color), transparent, var(--main-color));
-    animation: rotateRing 4s linear infinite; /* Fakt Ring firl */
-    padding: 6px;
+    background: linear-gradient(45deg, #00f2ff, #ff00ff);
+    box-shadow: 0 0 20px #00f2ff, 0 0 40px #ff00ff;
 }
 
 .image-wrapper {
@@ -111,124 +191,407 @@ section {
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
-    background: var(--bg-color);
-    border: 4px solid var(--bg-color);
-    /* Photo color fixed thevnyasathi animation kadhun takle */
+    background: #081b29;
 }
 
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: .5s ease;
 }
 
-/* Animation fakt ring sathi ahe, photo sathi nahi */
-@keyframes rotateRing {
-    100% { transform: rotate(360deg); }
-}
-
-/* ======================================================
-   4. BUTTONS & SOCIALS (CLEAN - NO GLOW)
-   ====================================================== */
-.home-sci a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border: 2px solid var(--main-color);
-    border-radius: 50%;
-    font-size: 22px;
-    color: var(--main-color);
-    transition: .3s;
-    margin-right: 15px;
-    text-decoration: none;
-}
-
-.home-sci a:hover {
-    background: var(--main-color);
-    color: var(--bg-color);
-}
-
-.btn-box {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--main-color);
-    border: 2px solid var(--main-color);
-    border-radius: 8px;
-    color: var(--bg-color);
-    font-weight: 600;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.btn-box:hover {
-    background: transparent;
-    color: var(--main-color);
+.image-wrapper img:hover {
+    transform: scale(1.1);
 }
 
 /* ======================================================
-   5. SKILLS & SECTIONS
+   4. GENERAL SECTION STYLING (About, Education, Skills)
    ====================================================== */
-.heading { font-size: 50px; text-align: center; margin-bottom: 3rem; }
-span { color: var(--main-color); }
-
-.about { background: var(--second-bg-color); text-align: center; }
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+section {
+    min-height: 100vh;
+    padding: 100px 10% 80px;
 }
 
-.skill-card {
-    background: var(--second-bg-color);
-    padding: 25px;
-    border-radius: 12px;
+.heading {
+    font-size: 50px;
     text-align: center;
-    border-bottom: 3px solid transparent;
-    transition: 0.4s;
+    margin-bottom: 4rem;
 }
 
-.skill-card:hover {
-    border-color: var(--main-color);
-    transform: translateY(-5px);
+span {
+    color: #0ef;
 }
 
-/* ======================================================
-   6. CONTACT FORM
-   ====================================================== */
-.contact form {
-    max-width: 600px;
-    margin: 0 auto;
+/* About Section */
+.about {
+    background: #112e42;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.contact form input, .contact form textarea {
+.about-content h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+}
+
+/* Education Timeline */
+.education {
+    background: #081b29;
+}
+
+.education-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.education-column {
+    flex: 1 1 100%;
+    max-width: 800px;
+}
+
+.education-box {
+    border-left: 3px solid #0ef;
+    padding-left: 25px;
+}
+
+.education-content {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.education-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -34px;
+    width: 15px;
+    height: 15px;
+    background: #0ef;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ef;
+}
+
+.content {
+    background: #112e42;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+.content .year {
+    color: #0ef;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.skills-column {
+    flex: 1 1 400px;
+}
+
+.skills-column .title {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.skills-box {
+    background: #112e42;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.progress {
+    padding: 10px 0;
+}
+
+.progress h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bar {
+    height: 12px;
+    width: 100%;
+    background: #081b29;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: #0ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ef;
+}
+
+/* Add width for each skill */
+.skills-column:nth-child(1) .progress:nth-child(1) .bar span { width: 90%; }
+.skills-column:nth-child(1) .progress:nth-child(2) .bar span { width: 75%; }
+.skills-column:nth-child(1) .progress:nth-child(3) .bar span { width: 80%; }
+.skills-column:nth-child(2) .progress:nth-child(1) .bar span { width: 70%; }
+.skills-column:nth-child(2) .progress:nth-child(2) .bar span { width: 85%; }
+.skills-column:nth-child(2) .progress:nth-child(3) .bar span { width: 80%; }
+
+/* ======================================================
+   5. SERVICES & PROJECTS
+   ====================================================== */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.services-box {
+    background: #112e42;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: .5s ease;
+}
+
+.services-box:hover {
+    border-color: #0ef;
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.2);
+}
+
+.services-box i {
+    font-size: 55px;
+    color: #0ef;
+    margin-bottom: 20px;
+}
+
+/* Portfolio Projects */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.portfolio-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, #0ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+/* ======================================================
+   6. CONTACT & FOOTER
+   ====================================================== */
+.contact form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input, 
+.contact form textarea {
+    width: 100%;
     padding: 15px;
-    background: var(--second-bg-color);
-    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 16px;
     color: #fff;
-    border-radius: 8px;
+    background: #112e42;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+}
+
+.contact form .input-box input:focus, 
+.contact form textarea:focus {
+    border-color: #0ef;
     outline: none;
 }
 
-.contact form input:focus { border-color: var(--main-color); }
+.contact form .input-box input { width: 49%; }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    background: #112e42;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #0ef;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 15px #0ef;
+}
+
+.footer-iconTop a i {
+    font-size: 24px;
+    color: #081b29;
+}
 
 /* ======================================================
-   7. RESPONSIVENESS
+   7. ANIMATIONS & RESPONSIVENESS (UPDATED)
    ====================================================== */
+@keyframes slideRight {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideLeft {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideTop {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideBottom {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes zoomIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Responsive Layout Fixes --- */
+
+/* Tablet & Laptop (Max 1200px) */
+@media (max-width: 1200px) {
+    .header { padding: 20px 5%; }
+    section { padding: 100px 5% 80px; }
+}
+
+/* Mobile & Tablet (Max 991px) */
 @media (max-width: 991px) {
     .home {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Image var ani text khali sathi */
+        text-align: center;
+        height: auto;
+        padding-top: 130px; /* Thoda kami kela space sathi */
+        gap: 1rem; /* Photo ani content madhli space kami karnyasathi */
+    }
+
+    .home-content {
+        max-width: 100%;
+        margin-top: -10px; /* Photo chya javal nenyasathi */
+    }
+
+    .home-content h1 { font-size: 40px; } /* Mobile var h1 motha disto mhanun thoda lahan kela */
+
+    .profile-glow {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 0px; /* Space kami karnyasathi */
+    }
+
+    .btn-group {
+        justify-content: center;
+    }
+
+    .home-sci {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile Devices (Max 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; 
+    }
+
+    .heading { font-size: 40px; }
+
+    .home-content h1 { font-size: 32px; }
+    
+    .home-content h3 { font-size: 22px; }
+
+    .about-content p { font-size: 16px; }
+
+    .contact form .input-box input {
+        width: 100%; 
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 20px;
         text-align: center;
     }
+}
+
+/* Small Mobile (Max 480px) */
+@media (max-width: 480px) {
+    .home {
+        padding-top: 100px;
+        gap: 0.5rem;
+    }
+
+    .home-content h1 { font-size: 26px; }
+    
     .profile-glow {
-        width: 300px;
-        height: 300px;
-        margin-top: 2rem;
+        width: 220px;
+        height: 220px;
+    }
+
+    .btn-box {
+        padding: 10px 20px;
+        font-size: 14px;
     }
    }
+   
