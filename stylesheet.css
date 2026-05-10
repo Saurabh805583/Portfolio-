@@ -1,489 +1,415 @@
 /* ======================================================
-   1. UNIVERSAL & LOADER STYLING
-   ====================================================== */
+   1. BASIC SETUP & UNIVERSAL STYLING
+====================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    border: none;
-    outline: none;
     scroll-behavior: smooth;
 }
 
-:root {
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
-    --text-color: #ededed;
-    --main-color: #00eeff;
-}
-
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
+    color: #ededed;
+    background: #081b29;
     overflow-x: hidden;
 }
 
-/* Page Loader Animation */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: var(--bg-color);
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease;
-}
-
-.loader-circle {
-    width: 50px;
-    height: 50px;
-    border: 5px solid var(--second-bg-color);
-    border-top: 5px solid var(--main-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #081b29; }
+::-webkit-scrollbar-thumb {
+    background: #0ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ef;
 }
 
 /* ======================================================
-   2. HEADER & STICKY NAV
-   ====================================================== */
+   2. HEADER & NAVIGATION
+====================================================== */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 9%;
-    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 10%;
+    background: rgba(8, 27, 41, 0.85);
+    backdrop-filter: blur(15px);
     z-index: 100;
-    transition: .3s;
-}
-
-.header.sticky {
-    background: rgba(8, 27, 41, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem 9%;
-    border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo {
-    font-size: 2.5rem;
-    color: var(--text-color);
+    font-size: 28px;
     font-weight: 700;
-}
-
-.logo span {
-    color: var(--main-color);
+    color: #fff;
 }
 
 .navbar a {
-    font-size: 1.7rem;
-    color: var(--text-color);
-    font-weight: 500;
-    margin-left: 3.5rem;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 35px;
+    text-decoration: none;
     transition: .3s;
-    opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.2s * var(--i));
 }
 
 .navbar a:hover,
-.navb/* ======================================================
-   3. HOME SECTION (UPDATED GLOW LOOK)
-   ====================================================== */
+.navbar a.active {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
 
-.profile-glow {
-    position: relative;
-    width: 35rem;
-    height: 35rem;
-    border-radius: 50%;
+/* Mobile Icon */
+#menu-icon {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ======================================================
+   3. HOME SECTION
+====================================================== */
+.home {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 10% 0;
+    min-height: 100vh;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 56px;
+}
+
+.home-content h3 {
+    margin: 10px 0;
+}
+
+.home-content p {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* Social Icons */
+.home-sci a {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    
-    /* Neon Gradient Border */
-    background: linear-gradient(45deg, #00f2ff, #ff00ff);
-    
-    /* Triple Layer Glow Effect */
-    box-shadow: 
-        0 0 2rem rgba(0, 242, 255, 0.6),  /* Blue Glow */
-        0 0 4rem rgba(255, 0, 255, 0.4),  /* Pink Glow */
-        0 0 6rem rgba(0, 242, 255, 0.2);  /* Outer Spread */
-        
-    animation: profileFloat 4s ease-in-out infinite; /* Floating Animation */
+    width: 45px;
+    height: 45px;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    color: #0ef;
+    margin: 30px 15px 30px 0;
+    transition: .4s;
+}
+
+.home-sci a:hover {
+    background: #0ef;
+    color: #081b29;
+    box-shadow: 0 0 20px #0ef;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-box {
+    position: relative;
+    padding: 12px 28px;
+    background: #0ef;
+    color: #081b29;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.btn-box:hover {
+    box-shadow: 0 0 25px #0ef;
+}
+
+/* Shine Effect */
+.btn-box::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+
+.btn-box:hover::before {
+    width: 100%;
+}
+
+/* Profile Image */
+.profile-glow {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(45deg,#00f2ff,#ff00ff);
+    animation: glowPulse 3s infinite alternate;
 }
 
 .image-wrapper {
-    width: 96%; /* Border thickness control */
-    height: 96%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     overflow: hidden;
-    background: var(--bg-color); /* Photo chya bajula thodi dark space */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(1.1); /* Photo thoda bright karnya sathi */
-}
-
-/* Photo halu-halu varkhali honyasathi animation */
-@keyframes profileFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-ar a.active {
-    color: var(--main-color);
-    text-shadow: 0 0 10px var(--main-color);
-}
-
-#menu-icon {
-    font-size: 3.6rem;
-    color: var(--text-color);
-    cursor: pointer;
-    display: none;
-}
-
-
-
-/* ======================================================
-   4. SECTIONS (ABOUT, SKILLS, PREP)
-   ====================================================== */
-.heading {
-    font-size: 4.5rem;
-    text-align: center;
-    margin-bottom: 5rem;
-}
-
-.heading span {
-    color: var(--main-color);
-}
-
-/* Glassmorphism Cards */
-.content, .prep-box, .skills-box, .portfolio-box {
-    background: var(--second-bg-color);
-    border: .1rem solid rgba(0, 238, 255, 0.1);
-    padding: 2.5rem;
-    border-radius: 2rem;
     transition: .5s;
 }
 
-.content:hover, .prep-box:hover, .skills-box:hover {
-    border-color: var(--main-color);
-    transform: translateY(-10px);
-}
-
-/* Progress Bars */
-.progress {
-    padding: 1rem 0;
-}
-
-.bar {
-    height: 1.2rem;
-    width: 100%;
-    background: var(--bg-color);
-    border-radius: 1rem;
-    margin-top: 1rem;
-    position: relative;
-}
-
-.bar span {
-    height: 100%;
-    background: var(--main-color);
-    border-radius: 1rem;
-    display: block;
-    box-shadow: 0 0 1rem var(--main-color);
+.image-wrapper img:hover {
+    transform: scale(1.1);
 }
 
 /* ======================================================
-   5. PORTFOLIO & CONTACT
-   ====================================================== */
+   4. GENERAL SECTIONS
+====================================================== */
+section {
+    padding: 100px 10% 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .8s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heading {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+span { color: #0ef; }
+
+/* About */
+.about {
+    background: #112e42;
+    text-align: center;
+}
+
+/* Education */
+.education-box {
+    border-left: 3px solid #0ef;
+    padding-left: 25px;
+}
+
+.content {
+    background: #112e42;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: .4s;
+}
+
+.content:hover {
+    transform: translateX(10px);
+}
+
+/* ======================================================
+   5. SKILLS
+====================================================== */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.skills-column {
+    flex: 1 1 300px;
+}
+
+/* ======================================================
+   6. SERVICES / PROJECTS
+====================================================== */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 25px;
+}
+
+.services-box {
+    background: #112e42;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: .5s;
+}
+
+.services-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0,238,255,0.2);
+}
+
+/* Portfolio */
 .portfolio-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: 30px;
 }
 
 .portfolio-box {
-    position: relative;
+    border-radius: 20px;
     overflow: hidden;
-    display: flex;
+    position: relative;
 }
 
 .portfolio-box img {
     width: 100%;
-    transition: .5s ease;
+    transition: .5s;
 }
 
 .portfolio-box:hover img {
     transform: scale(1.1);
 }
 
-.portfolio-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 4rem;
-    text-align: center;
-    transform: translateY(100%);
-    transition: .5s ease;
-}
-
-.portfolio-box:hover .portfolio-layer {
-    transform: translateY(0);
-}
-
-/* Contact Form */
-.contact form {
-    max-width: 70rem;
-    margin: 0 auto;
+/* ======================================================
+   7. GOV PREP
+====================================================== */
+.gov-prep {
+    background: #0a2233;
     text-align: center;
 }
 
-.contact form .input-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.prep-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
 }
 
-.contact form .input-box input,
-.contact form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--second-bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
+.prep-box {
+    background: #112e42;
+    padding: 25px;
+    border-radius: 15px;
+    transition: .4s;
 }
 
-.contact form .input-box input {
-    width: 49%;
+.prep-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0,238,255,0.3);
 }
 
 /* ======================================================
-   6. FOOTER & ANIMATIONS
-   ====================================================== */
+   8. CONTACT & FOOTER
+====================================================== */
+.contact form {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: #112e42;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: var(--second-bg-color);
-}
-
-.footer-iconTop a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem;
-    background: var(--main-color);
-    border-radius: .8rem;
-    transition: .5s;
-}
-
-.footer-iconTop a:hover {
-    box-shadow: 0 0 1rem var(--main-color);
-}
-
-@keyframes slideTop {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideLeft {
-    0% { transform: translateX(100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    padding: 20px 10%;
+    background: #112e42;
 }
 
 /* ======================================================
-   7. RESPONSIVE DESIGN (MOBILE FIXES)
-   ====================================================== */
-@media (max-width: 991px) {
-    .header { padding: 2rem 3%; }
-    section { padding: 10rem 3% 2rem; }
+   9. EXTRA UI
+====================================================== */
+.top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0ef;
+    padding: 12px;
+    border-radius: 50%;
 }
 
-@media (max-width: 768px) {
-    #menu-icon { display: block; }
-    
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        display: none;
-    }
-
-    .navbar.active { display: block; }
-
-    .navbar a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    .home { flex-direction: column-reverse; text-align: center; }
-    .home-content h1 { font-size: 4rem; }
-    .profile-glow { width: 25rem; height: 25rem; }
-    .contact form .input-box input { width: 100%; }
-   }
-   /* ======================================================
-   8. UNIVERSAL RESPONSIVENESS (All Devices)
-   ====================================================== */
-
-/* --- 1. Tablets & Small Laptops (Max 1200px) --- */
-@media (max-width: 1200px) {
-    html {
-        font-size: 55%; /* Overall font thoda lahan kela space sathi */
-    }
-
-    .header {
-        padding: 2rem 5%;
-    }
-
-    section {
-        padding: 10rem 5% 2rem;
-    }
+/* ======================================================
+   10. ANIMATIONS
+====================================================== */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 20px #00f2ff; }
+    100% { box-shadow: 0 0 40px #ff00ff; }
 }
 
-/* --- 2. Tablets & Large Phones (Max 991px) --- */
+/* ======================================================
+   11. RESPONSIVE
+====================================================== */
 @media (max-width: 991px) {
-    .header {
-        padding: 2rem 3%;
-    }
-
-    section {
-        padding: 8rem 3% 2rem;
-    }
-
     .home {
-        flex-direction: column-reverse; /* Photo var aani text khali */
-        gap: 3rem;
+        flex-direction: column;
         text-align: center;
     }
 
-    .home-content h1 {
-        font-size: 4.5rem;
-    }
-
-    .home-content h3 {
-        font-size: 2.5rem;
-    }
-
     .profile-glow {
-        width: 28rem;
-        height: 28rem;
-    }
-
-    .btn-group {
-        justify-content: center;
-    }
-
-    .home-sci {
-        margin-bottom: 2rem;
-    }
-    
-    .portfolio-container {
-        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        width: 280px;
+        height: 280px;
     }
 }
 
-/* --- 3. Mobile Devices (Max 768px) --- */
 @media (max-width: 768px) {
-    #menu-icon {
-        display: block; /* Hamburger Menu distil */
-    }
+
+    #menu-icon { display: block; }
 
     .navbar {
+        display: none;
         position: absolute;
+        width: 100%;
         top: 100%;
         left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        display: none; /* Default hidden, JS ne toggle hoil */
+        background: #081b29;
+        flex-direction: column;
+        text-align: center;
     }
 
     .navbar.active {
-        display: block;
+        display: flex;
     }
 
     .navbar a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-        transform: translateX(-20px);
-        transition: 0.3s ease;
-    }
-    
-    .navbar.active a {
-        transform: translateX(0);
-    }
-
-    .education-row, .skills-row {
-        flex-direction: column;
-        gap: 3rem;
-    }
-
-    .contact form .input-box input {
-        width: 100%; /* Mobile var inputs full width */
-    }
-}
-
-/* --- 4. Very Small Phones (Max 450px) --- */
-@media (max-width: 450px) {
-    html {
-        font-size: 50%;
-    }
-
-    .home-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .profile-glow {
-        width: 22rem;
-        height: 22rem;
-    }
-
-    .heading {
-        font-size: 3.5rem;
+        margin: 15px 0;
     }
 
     .footer {
-        flex-direction: column-reverse;
-        gap: 2rem;
+        flex-direction: column;
         text-align: center;
+        gap: 15px;
     }
 }
 
+@media (max-width: 480px) {
+    .home-content h1 { font-size: 28px; }
+
+    .profile-glow {
+        width: 220px;
+        height: 220px;
+    }
+}
