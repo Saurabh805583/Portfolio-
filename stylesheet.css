@@ -486,7 +486,7 @@ span {
 }
 
 /* ======================================================
-   7. ANIMATIONS & RESPONSIVENESS (FIXED)
+   7. ANIMATIONS & RESPONSIVENESS (FINAL FIXED)
    ====================================================== */
 
 /* Animations */
@@ -553,10 +553,15 @@ span {
     }
 }
 
-/* 🔥 MOBILE FIX (IMPORTANT) */
+/* 🔥 MOBILE (Menu with ☰ icon) */
 @media (max-width: 768px) {
 
-    /* Navbar hidden by default */
+    #menu-icon {
+        display: block; /* show hamburger */
+        font-size: 28px;
+        cursor: pointer;
+    }
+
     .navbar {
         display: none;
         position: absolute;
@@ -570,17 +575,15 @@ span {
         z-index: 99;
     }
 
-    /* Show menu when active */
     .navbar.active {
         display: block;
     }
 
-    /* Links styling mobile */
     .navbar a {
         display: block;
         margin: 15px 0;
         font-size: 20px;
-        opacity: 1; /* important fix */
+        opacity: 1;
     }
 
     .heading { font-size: 40px; }
@@ -598,6 +601,29 @@ span {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+}
+
+/* 🔥 DESKTOP (NO ☰ icon, full navbar) */
+@media (min-width: 769px) {
+
+    #menu-icon {
+        display: none; /* ❌ hide 3 lines */
+    }
+
+    .navbar {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        background: transparent;
+    }
+
+    .navbar a {
+        display: inline-block;
+        margin-left: 25px;
+        opacity: 1;
     }
 }
 
@@ -619,4 +645,4 @@ span {
         padding: 10px 20px;
         font-size: 14px;
     }
-       }
+}
