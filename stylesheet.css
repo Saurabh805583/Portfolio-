@@ -486,8 +486,10 @@ span {
 }
 
 /* ======================================================
-   7. ANIMATIONS & RESPONSIVENESS (UPDATED)
+   7. ANIMATIONS & RESPONSIVENESS (FIXED)
    ====================================================== */
+
+/* Animations */
 @keyframes slideRight {
     0% { transform: translateX(-100px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
@@ -509,35 +511,36 @@ span {
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* --- Responsive Layout Fixes --- */
+/* ======================================================
+   Responsive Layout
+   ====================================================== */
 
-/* Tablet & Laptop (Max 1200px) */
+/* Tablet & Laptop */
 @media (max-width: 1200px) {
     .header { padding: 20px 5%; }
     section { padding: 100px 5% 80px; }
 }
 
-/* Mobile & Tablet (Max 991px) */
+/* Tablet */
 @media (max-width: 991px) {
     .home {
-        flex-direction: column-reverse; /* Image var ani text khali sathi */
+        flex-direction: column-reverse;
         text-align: center;
         height: auto;
-        padding-top: 130px; /* Thoda kami kela space sathi */
-        gap: 1rem; /* Photo ani content madhli space kami karnyasathi */
+        padding-top: 130px;
+        gap: 1rem;
     }
 
     .home-content {
         max-width: 100%;
-        margin-top: -10px; /* Photo chya javal nenyasathi */
+        margin-top: -10px;
     }
 
-    .home-content h1 { font-size: 40px; } /* Mobile var h1 motha disto mhanun thoda lahan kela */
+    .home-content h1 { font-size: 40px; }
 
     .profile-glow {
         width: 280px;
         height: 280px;
-        margin-bottom: 0px; /* Space kami karnyasathi */
     }
 
     .btn-group {
@@ -550,22 +553,45 @@ span {
     }
 }
 
-/* Mobile Devices (Max 768px) */
+/* 🔥 MOBILE FIX (IMPORTANT) */
 @media (max-width: 768px) {
+
+    /* Navbar hidden by default */
     .navbar {
-        display: none; 
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #081b29;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 99;
+    }
+
+    /* Show menu when active */
+    .navbar.active {
+        display: block;
+    }
+
+    /* Links styling mobile */
+    .navbar a {
+        display: block;
+        margin: 15px 0;
+        font-size: 20px;
+        opacity: 1; /* important fix */
     }
 
     .heading { font-size: 40px; }
 
     .home-content h1 { font-size: 32px; }
-    
     .home-content h3 { font-size: 22px; }
 
     .about-content p { font-size: 16px; }
 
     .contact form .input-box input {
-        width: 100%; 
+        width: 100%;
     }
 
     .footer {
@@ -575,7 +601,7 @@ span {
     }
 }
 
-/* Small Mobile (Max 480px) */
+/* Small Mobile */
 @media (max-width: 480px) {
     .home {
         padding-top: 100px;
@@ -583,7 +609,7 @@ span {
     }
 
     .home-content h1 { font-size: 26px; }
-    
+
     .profile-glow {
         width: 220px;
         height: 220px;
@@ -593,4 +619,4 @@ span {
         padding: 10px 20px;
         font-size: 14px;
     }
-}
+       }
